@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="main.js"></script>
+    งานอดิเรก:
+    <input type="checkbox" name="fname" value="ฟุตบอล"> ฟุตบอล
+    <input type="checkbox" name="fname" value="บาสเกตบอล"> บาสเกตบอล
+    <input type="checkbox" name="fname" value="ว่ายน้ำ"> ว่ายน้ำ
+    </script>
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    console.log(checkboxes);
+    for (let i = 0; i < checkboxes.length; i++) {
+        console.log(checkboxes[i].value);
+    }
 </body>
 </html>
