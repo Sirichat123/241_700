@@ -1,0 +1,148 @@
+/* ตั้งค่าพื้นฐานและ Reset ค่า default */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Sarabun', sans-serif; /* แนะนำให้ใช้ฟอนต์ภาษาไทยถ้ามี หรือใช้ default */
+}
+
+body {
+    background-color: #f4f4f9; /* สีพื้นหลังเทาอ่อนดูสบายตา */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* กล่องคอนเทนเนอร์หลัก */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px; /* จำกัดความกว้างไม่ให้กว้างเกินไป */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เงาให้ดูมีมิติ */
+}
+
+/* ส่วนหัวข้อแบบฟอร์ม */
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* จัดการ Layout แบบ Flexbox (ใช้กับ class="flex") */
+.flex {
+    display: flex;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    gap: 10px; /* ระยะห่างระหว่าง element */
+}
+
+/* กลุ่มของ Input แต่ละแถว */
+.form-input {
+    margin-bottom: 15px;
+}
+
+/* ป้ายกำกับหน้าช่องกรอก (เช่น ชื่อ, นามสกุล) */
+.header-form {
+    width: 80px; /* กำหนดความกว้างคงที่เพื่อให้ช่องกรอกข้อมูลตรงกัน */
+    font-weight: 600;
+    color: #555;
+    flex-shrink: 0; /* ไม่ให้หดตัวเมื่อหน้าจอเล็ก */
+}
+
+/* ช่องกรอกข้อมูล (Input Text/Number) */
+.form {
+    flex: 1; /* ขยายให้เต็มพื้นที่ที่เหลือ */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form:focus {
+    outline: none;
+    border-color: #007bff; /* เปลี่ยนสีขอบเมื่อคลิก */
+}
+
+/* จัดการส่วนเพศ (Radio buttons) */
+.gender .flex div {
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* ระยะห่างระหว่างตัวเลือกชาย/หญิง */
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* จัดการส่วนงานอดิเรก (Checkboxes) */
+.form-input > div {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+/* พื้นที่เขียนคำอธิบาย (Textarea) */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* ย่อขยายได้แค่แนวตั้ง */
+    font-size: 16px;
+}
+
+/* จัดปุ่มให้อยู่ตรงกลาง */
+.center {
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* ปุ่มกดส่งข้อมูล */
+.button {
+    background-color: #28a745; /* สีเขียว */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.button:hover {
+    background-color: #218838; /* สีเขียวเข้มขึ้นเมื่อเอาเมาส์ชี้ */
+}
+
+.button:active {
+    transform: scale(0.98); /* ยุบลงเล็กน้อยเมื่อคลิก */
+}
+
+/* รองรับหน้าจอมือถือ */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .flex.form-input {
+        flex-direction: column; /* เรียงลงมาเป็นแนวตั้งในมือถือ */
+        align-items: flex-start;
+    }
+
+    .header-form {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .form {
+        width: 100%;
+    }
+}
