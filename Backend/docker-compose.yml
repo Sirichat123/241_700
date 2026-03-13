@@ -40,3 +40,4 @@ networks:
 volumes:
   mysql_data_700:
     driver: local
+    
